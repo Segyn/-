@@ -20,10 +20,10 @@ def game100() -> str:
             print('Ваше число меньше загаданного')
 
         else:
-            print(f'Вы угадали использовав {text.text_num_vin[i]} попыток')
+            print(f'Вы угадали использовав {text.text_num_vin[i]} попыт{text.text_num_end[i]}')
             break
 
-        print(f'Вы использовали {text.text_num[i]} попыток из десяти\n')
+        print(f'Вы использовали {text.text_num_try[i]} попытку из десяти\n')
 
 
 if __name__ == '__main__':
