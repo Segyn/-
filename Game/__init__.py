@@ -3,7 +3,7 @@ import random
 import text
 
 
-def game100() -> str:
+def game100():
     random_num = random.randint(0, 100)
     print(random_num)
     print('Угадайте число использовав десять попыток\n')
@@ -11,19 +11,19 @@ def game100() -> str:
     i = 0
     while i < 10:
         i += 1
-        user_num = int(input('Введите число '))
+        user_num = int(input('Введите число: ->'))
+
         if random_num < user_num:
             print('Ваше число больше загаданного')
-
 
         elif random_num > user_num:
             print('Ваше число меньше загаданного')
 
         else:
-            print(f'Вы угадали использовав {text.text_num_vin[i]} попыт{text.text_num_end[i]}')
-            break
+           return print(f'Вы угадали использовав {text.text_num_vin[i]} попыт{text.text_num_end[i]}')
 
         print(f'Вы использовали {text.text_num_try[i]} попытку из десяти\n')
+    return print(f'Вы использовали все попытки, загаданное число было: {random_num}')
 
 
 if __name__ == '__main__':
