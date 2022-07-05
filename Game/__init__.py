@@ -2,18 +2,18 @@
 import random
 import text
 import function
-from function import inner_user_nam
+from function import inner_user_num
 
 
 def game100():
     random_num = random.randint(0, 100)
     print(random_num)
-    print('Угадайте число использовав десять попыток\n')
+    print('\nУгадайте число использовав десять попыток\n')
 
     i = 0
     while i < 10:
         i += 1
-        user_num = inner_user_nam()
+        user_num = inner_user_num()
 
         if random_num < user_num:
             print('Ваше число больше загаданного')
