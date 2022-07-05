@@ -1,9 +1,9 @@
 def inner_user_num():
-    user_num=input('Введите целое число: -> ')
+    user_num=input('Введите целое положительное число: -> ')
     if user_num.isdigit():
         return int(user_num)
     else:
-        print('Вы вели не число')
+        print('\nВы ввели не целое положительное число\n')
         return inner_user_num()
 
 

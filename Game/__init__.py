@@ -8,7 +8,7 @@ from function import inner_user_num
 def game100():
     random_num = random.randint(0, 100)
     print(random_num)
-    print('\nУгадайте число использовав десять попыток\n')
+    print('\nУгадайте целое положительное число от нуля до ста, использовав десять попыток.\n')
 
     i = 0
     while i < 10:
@@ -22,7 +22,8 @@ def game100():
             print('Ваше число меньше загаданного')
 
         else:
-            return print(f'\nВы угадали число, использовав {text.text_num_vin[i]} {text.text_num_end[i]}')
+            return print(f'\nВы угадали загаданное число {random_num}, '
+                         f'использовав {text.text_num_vin[i]} {text.text_num_end[i]}')
 
         print(f'Вы использовали {text.text_num_try[i]} попытку из десяти\n')
     return print(f'Вы использовали все попытки, загаданное число было: {random_num}')
