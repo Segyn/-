@@ -13,8 +13,8 @@ def game100():
     i = 0
     while i < 10:
         i += 1
-        # user_num = int(input('Введите число: ->'))
-        user_num=inner_user_nam()
+        user_num = inner_user_nam()
+
         if random_num < user_num:
             print('Ваше число больше загаданного')
 
@@ -22,7 +22,7 @@ def game100():
             print('Ваше число меньше загаданного')
 
         else:
-            return print(f'Вы угадали использовав {text.text_num_vin[i]} попыт{text.text_num_end[i]}')
+            return print(f'\nВы угадали число, использовав {text.text_num_vin[i]} {text.text_num_end[i]}')
 
         print(f'Вы использовали {text.text_num_try[i]} попытку из десяти\n')
     return print(f'Вы использовали все попытки, загаданное число было: {random_num}')
