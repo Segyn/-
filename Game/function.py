@@ -6,12 +6,11 @@ import text
 def start_game():
     print('\nУгадайте целое положительное число от нуля до ста, использовав десять попыток.\n')
     random_num = random.randint(0, 100)
-    print(random_num)
     counter(0, random_num)
 
 
 # Счетчик попыток
-def counter(counter_try, random_num):
+def counter(counter_try: int, random_num: int):
     counter_try += 1
     if counter_try > 10:
         print(f'Вы использовали все попытки, загаданное число было: {random_num}')
@@ -20,7 +19,7 @@ def counter(counter_try, random_num):
 
 
 # Ввод числа пользователем и проверка ввода
-def inner_user_num(counter_try, random_num):
+def inner_user_num(counter_try: int, random_num: int):
     user_num = input('Введите целое положительное число: -> ')
     if user_num.isdigit():
         user_num = int(user_num)
@@ -34,7 +33,7 @@ def inner_user_num(counter_try, random_num):
 
 
 # Основная функция игры
-def game100(counter_try, random_num, user_num):
+def game100(counter_try: int, random_num: int, user_num: int):
     if random_num < user_num:
         print('\nВаше число больше загаданного')
 
@@ -56,6 +55,7 @@ def restart_game():
     if restart.lower() == 'да':
         start_game()
     print('Игра завершена.')
+
 
 if __name__ == '__main__':
     start_game()
