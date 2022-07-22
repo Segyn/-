@@ -1,48 +1,52 @@
 import random
 import text
 
-# Название игры
-print('\nУгадайте целое положительное число от нуля до ста, использовав десять попыток.\n')
+# Старт игры
+def start_game():
+    print('\nУгадайте целое положительное число от нуля до ста, использовав десять попыток.\n')
+    random_num = random.randint(0, 100)
+    print(random_num)
+    counter(0, random_num)
+
+
 # Счетчик попыток
-counter_try = 0
+def counter(counter_try, random_num):
+    counter_try += 1
+    if counter_try > 10:
+        return print(f'Вы использовали все попытки, загаданное число было: {random_num}')
+    inner_user_num(counter_try, random_num)
 
 
 # Ввод числа пользователем и проверка ввода
-def inner_user_num():
+def inner_user_num(counter_try, random_num):
     user_num = input('Введите целое положительное число: -> ')
     if user_num.isdigit():
-        return int(user_num)
+        user_num = int(user_num)
+        game100(counter_try, random_num, user_num)
+
     else:
         print('\nВы ввели не целое положительное число!')
-        global counter_try
+        print(f'Вы использовали {text.text_num_try[counter_try]} попытку из десяти\n')
         counter_try += 1
-        print(f'Вы использовали {text.text_num_try[counter_try - 1]} попытку из десяти\n')
-        return inner_user_num()
+        return inner_user_num(counter_try, random_num)
 
 
 # Основная функция игры
-def game100():
-    random_num = random.randint(0, 100)
-    print(random_num)
-    global counter_try
+def game100(counter_try, random_num, user_num):
 
-    while counter_try < 10:
-        counter_try += 1
-        user_num = inner_user_num()
+    if random_num < user_num:
+        print('\nВаше число больше загаданного')
 
-        if random_num < user_num:
-            print('\nВаше число больше загаданного')
+    if random_num > user_num:
+        print('\nВаше число меньше загаданного')
 
-        elif random_num > user_num:
-            print('\nВаше число меньше загаданного')
+    if random_num == user_num:
+        return print(f'\nВы угадали загаданное число {random_num}, использовав {text.text_num_vin[counter_try]} {text.text_num_end[counter_try]}')
 
-        else:
-            return print(f'\nВы угадали загаданное число {random_num}, '
-                         f'использовав {text.text_num_vin[counter_try]} {text.text_num_end[counter_try]}')
+    print(f'Вы использовали {text.text_num_try[counter_try]} попытку из десяти\n')
 
-        print(f'Вы использовали {text.text_num_try[counter_try]} попытку из десяти\n')
-    return print(f'Вы использовали все попытки, загаданное число было: {random_num}')
+    counter(counter_try, random_num)
 
 
 if __name__ == '__main__':
-    inner_user_num()
+    start_game()
